@@ -22,15 +22,15 @@ public class User {
     private Event event;
 
     public User() { }
-    public User(String username, String firstName, String lastName, String email, String password, String birthday, boolean hosting, Event event) {
+    public User(String username, String firstName, String lastName, String email, String password, String birthday) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.birthday = birthday;
-        this.hosting = hosting;
-        this.event = event;
+        this.hosting = false;
+        this.event = null;
     }
 
     public Integer getId() {
