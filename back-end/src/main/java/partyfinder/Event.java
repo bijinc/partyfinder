@@ -23,6 +23,7 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    private String name;
     private String hostName;
     private User host;
     private String theme;
@@ -34,15 +35,16 @@ public class Event {
     private double cover;
 
     public Event() { }
-    public Event(String hostName, String theme, String startTime, String endTime, Location location, int ageLimit, String drinks, double cover) {
-        this.hostName = hostName;
-        this.theme = theme;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.location = location;
-        this.ageLimit = ageLimit;
-        this.drinks = drinks;
-        this.cover = cover;
+    public Event(String name, String hostName, String theme, String startTime, String endTime, Location location, int ageLimit, String drinks, double cover) {
+      this.name = name;
+      this.hostName = hostName;
+      this.theme = theme;
+      this.startTime = startTime;
+      this.endTime = endTime;
+      this.location = location;
+      this.ageLimit = ageLimit;
+      this.drinks = drinks;
+      this.cover = cover;
     }
 
     public Integer getId() {
@@ -52,6 +54,13 @@ public class Event {
         this.id = id;
     }
 
+    public String getName() {
+      return this.name;
+    }
+    public void setName(String name) {
+      this.name = name;
+    }
+    
     public String getHostName() {
       return this.hostName;
     }
@@ -82,6 +91,7 @@ public class Event {
 
     public String getLocation() {
       return this.getAddress();
+      // return this.location;
     }
     public void setLocation(String address) {
       this.setAddress(address);
@@ -107,7 +117,4 @@ public class Event {
     public void setCover(double cover) {
       this.cover = cover;
     }
-
-
-
 }
