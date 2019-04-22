@@ -104,7 +104,7 @@ public class Event {
       this.ageLimit = ageLimit;
     }
 
-    public String getByob() {
+    public boolean getByob() {
       return this.byob;
     }
     public void setByob(boolean byob) {
