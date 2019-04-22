@@ -27,7 +27,7 @@ public class EventController {
 	/* POST: Add new event */
 	@PostMapping(path="/host")
 	public @ResponseBody Event addEvent (@RequestBody Event body) {
-		Event event = new Event(body.getName(), body.getHostName(), body.getTheme(), body.getStartTime(), body.getEndTime(), body.getLocation(), body.getAgeLimit(), body.getDrinks(), body.getCover());
+		Event event = new Event(body.getName(), body.getHostName(), body.getTheme(), body.getStartTime(), body.getEndTime(), body.getLocation(), body.getAgeLimit(), body.getByob(), body.getCover());
 		return eventRepository.save(event);
 	}
 

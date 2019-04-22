@@ -42,7 +42,7 @@ public class Event {
       this.endTime = endTime;
       this.location = location;
       this.ageLimit = ageLimit;
-      this.drinks = drinks;
+      this.byob = byob;
       this.cover = cover;
     }
 
@@ -105,10 +105,10 @@ public class Event {
     }
 
     public String getByob() {
-      return this.drinks;
+      return this.byob;
     }
     public void setByob(boolean byob) {
-      this.drinks = drinks;
+      this.byob = byob;
     }
 
     public double getCover() {
