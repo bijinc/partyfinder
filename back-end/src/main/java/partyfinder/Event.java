@@ -17,7 +17,6 @@ public class Event {
     public void setAddress(String address) {
       this.address = address;
     }
-
   }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -60,7 +59,7 @@ public class Event {
     public void setName(String name) {
       this.name = name;
     }
-    
+
     public String getHostName() {
       return this.hostName;
     }
