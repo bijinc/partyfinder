@@ -1,11 +1,11 @@
 import {Component} from 'react';
-import ReactMapGL from 'react-map-gl';
+import LocationOn from '@material-ui/icons/LocationOn';
+import ReactMapGL, {Marker} from 'react-map-gl';
 import Dashboard from "./Dashboard";
-import Map from './map';
 
 
 
-export default class index extends React.Component{
+export default class Map extends React.Component{
   constructor(props) {
     super(props);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
@@ -42,6 +42,10 @@ export default class index extends React.Component{
       }
     }));
   }
+
+  clickMarker() {
+    
+  }
   
   render() {
     return (
@@ -49,7 +53,16 @@ export default class index extends React.Component{
         {...this.state.viewport}
         mapboxApiAccessToken='pk.eyJ1IjoiYnJpYW5sb25nOTEyIiwiYSI6ImNqdXB6dDk4MzBzMWszeXA3ODlodzBtdXcifQ.ZqmXaAGe-PFb9GZmmnhcog'
         onViewportChange={(viewport) => this.setState({viewport})}
-      />
+      >
+      <Marker
+        latitude={40.425} 
+        longitude={-86.915}
+        offsetTop={-10}
+        onClick={() => this.clickMarker()}
+      >
+        <LocationOn/>
+      </Marker>
+      </ReactMapGL>
     );
   }
 }
