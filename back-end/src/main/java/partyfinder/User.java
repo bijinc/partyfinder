@@ -40,6 +40,13 @@ public class User {
         this.id = id;
     }
 
+    public String getUserName() {
+      return this.username;
+    }
+    public void setUserName(String username) {
+      this.username = username;
+    }
+
     public String getFirstName() {
         return this.firstName;
     }
@@ -53,9 +60,22 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
     public String getName() {
         return this.firstName + " " + this.lastName;
+    }
+
+    public String getEmail() {
+      return this.email;
+    }
+    public void setEmail(String email) {
+      this.email = email;
+    }
+
+    public String getPassword() {
+      return this.password;
+    }
+    public void setPassword(String password) {
+      this.password = password;
     }
 
     public boolean isHosting() {
@@ -63,6 +83,13 @@ public class User {
     }
     public void setHosting(boolean val) {
       this.hosting = val;
+    }
+
+    public String getBirthday() {
+      return this.birthday;
+    }
+    public void setBirthday(String birthday) {
+      this.birthday = birthday;
     }
 
     public Event getEvent() {

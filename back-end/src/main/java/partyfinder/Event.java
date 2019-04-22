@@ -17,7 +17,6 @@ public class Event {
     public void setAddress(String address) {
       this.address = address;
     }
-
   }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,17 +24,17 @@ public class Event {
 
     private String name;
     private String hostName;
-    private User host;
+    // private User host;
     private String theme;
     private String startTime;
     private String endTime;
     private Location location;
-    private int ageLimit;
-    private String drinks;
+    private boolean ageLimit;
+    private boolean byob;
     private double cover;
 
     public Event() { }
-    public Event(String name, String hostName, String theme, String startTime, String endTime, Location location, int ageLimit, String drinks, double cover) {
+    public Event(String name, String hostName, String theme, String startTime, String endTime, Location location, boolean ageLimit, boolean byob, double cover) {
       this.name = name;
       this.hostName = hostName;
       this.theme = theme;
@@ -60,7 +59,7 @@ public class Event {
     public void setName(String name) {
       this.name = name;
     }
-    
+
     public String getHostName() {
       return this.hostName;
     }
@@ -71,7 +70,7 @@ public class Event {
     public String getTheme() {
       return this.theme;
     }
-    public void setTheme(Sting theme) {
+    public void setTheme(String theme) {
       this.theme = theme;
     }
 
@@ -89,25 +88,26 @@ public class Event {
       this.endTime = endTime;
     }
 
-    public String getLocation() {
-      return this.getAddress();
-      // return this.location;
+    public Location getLocation() {
+      // return this.getAddress();
+      return this.location;
     }
-    public void setLocation(String address) {
-      this.setAddress(address);
+    public void setLocation(Location location) {
+      // this.setAddress(address);
+      this.location = location;
     }
 
-    public int getAgeLimit() {
+    public boolean getAgeLimit() {
       return this.ageLimit;
     }
-    public void setAgeLimit(int ageLimit) {
+    public void setAgeLimit(boolean ageLimit) {
       this.ageLimit = ageLimit;
     }
 
-    public String getDrinks() {
+    public String getByob() {
       return this.drinks;
     }
-    public void setDrinks(String drinks) {
+    public void setByob(boolean byob) {
       this.drinks = drinks;
     }
 
