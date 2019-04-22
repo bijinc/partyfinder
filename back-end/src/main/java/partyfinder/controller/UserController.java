@@ -18,21 +18,21 @@ import partyfinder.User;
 import partyfinder.UserRepository;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(path="/demo")
+//@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(path="/app")
 public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 
 	/* POST: Add new user */
-	@PostMapping(path="/add")
+	@PostMapping(path="/add-user")
 	public @ResponseBody User addNewUser (@RequestBody User body) {
 		User user = new User(body.getUserName(), body.getFirstName(), body.getLastName(), body.getEmail(), body.getPassword(), body.getBirthday());
 		return userRepository.save(user);
 	}
 
 	/* GET: Get all users */
-	@GetMapping(path="/all")
+	@GetMapping(path="/all-users")
 	public @ResponseBody Iterable<User> getAllUsers() {
 		return userRepository.findAll();
 	}
@@ -48,7 +48,7 @@ public class UserController {
 	}
 
 	/* PUT: Update user with ID */
-	@PutMapping(path="/edit/{id}")
+	@PutMapping(path="/edit-user/{id}")
 	public ResponseEntity<?> editUser(@PathVariable("id") Integer id, @RequestBody User body) {
 		User user = userRepository.findById(id).get();
 

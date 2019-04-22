@@ -19,7 +19,7 @@ import partyfinder.EventRepository;
 
 @Controller
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(path="/demo")
+@RequestMapping(path="/app")
 public class EventController {
 	@Autowired
 	private EventRepository eventRepository;
@@ -32,7 +32,7 @@ public class EventController {
 	}
 
 	/* GET: Get all events */
-	@GetMapping(path="/all")
+	@GetMapping(path="/events")
 	public @ResponseBody Iterable<Event> getAllEvents() {
 		return eventRepository.findAll();
 	}
@@ -48,7 +48,7 @@ public class EventController {
 	}
 
 	/* PUT: Update event with ID */
-	@PutMapping(path="/edit/{id}")
+	@PutMapping(path="/edit-event/{id}")
 	public ResponseEntity<?> editEvent(@PathVariable("id") Integer id, @RequestBody Event body) {
 		Event event = eventRepository.findById(id).get();
 

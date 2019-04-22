@@ -29,12 +29,12 @@ public class Event {
     private String startTime;
     private String endTime;
     private Location location;
-    private int ageLimit;
-    private String drinks;
+    private boolean ageLimit;
+    private boolean byob;
     private double cover;
 
     public Event() { }
-    public Event(String name, String hostName, String theme, String startTime, String endTime, Location location, int ageLimit, String drinks, double cover) {
+    public Event(String name, String hostName, String theme, String startTime, String endTime, Location location, boolean ageLimit, boolean byob, double cover) {
       this.name = name;
       this.hostName = hostName;
       this.theme = theme;
@@ -97,17 +97,17 @@ public class Event {
       this.location = location;
     }
 
-    public int getAgeLimit() {
+    public boolean getAgeLimit() {
       return this.ageLimit;
     }
-    public void setAgeLimit(int ageLimit) {
+    public void setAgeLimit(boolean ageLimit) {
       this.ageLimit = ageLimit;
     }
 
-    public String getDrinks() {
+    public String getByob() {
       return this.drinks;
     }
-    public void setDrinks(String drinks) {
+    public void setByob(boolean byob) {
       this.drinks = drinks;
     }
 
