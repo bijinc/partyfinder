@@ -27,7 +27,7 @@ public class EventController {
 	/* POST: Add new event */
 	@PostMapping(path="/host")
 	public @ResponseBody Event addEvent (@RequestBody Event body) {
-		Event event = new Event(body.getHostName(), body.getTheme(), body.getStartTime(), body.getEndTime(), body.getLocation(), body.getAgeLimit(), body.getDrinks(), body.getCover());
+		Event event = new Event(body.getName(), body.getHostName(), body.getTheme(), body.getStartTime(), body.getEndTime(), body.getLocation(), body.getAgeLimit(), body.getDrinks(), body.getCover());
 		return eventRepository.save(event);
 	}
 
@@ -49,7 +49,7 @@ public class EventController {
 
 	/* PUT: Update event with ID */
 	@PutMapping(path="/edit/{id}")
-	public ResponseEntity<?> editEvent(@PathVariable("id") Integer id, @RequestBody Event event) {
+	public ResponseEntity<?> editEvent(@PathVariable("id") Integer id, @RequestBody Event body) {
 		Event event = eventRepository.findById(id).get();
 
 		if (event == null) {

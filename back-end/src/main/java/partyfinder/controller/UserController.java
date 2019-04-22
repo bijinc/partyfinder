@@ -49,7 +49,7 @@ public class UserController {
 
 	/* PUT: Update user with ID */
 	@PutMapping(path="/edit/{id}")
-	public ResponseEntity<?> editUser(@PathVariable("id") Integer id, @RequestBody User user) {
+	public ResponseEntity<?> editUser(@PathVariable("id") Integer id, @RequestBody User body) {
 		User user = userRepository.findById(id).get();
 
 		if (user == null) {

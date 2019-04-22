@@ -24,7 +24,7 @@ public class Event {
 
     private String name;
     private String hostName;
-    private User host;
+    // private User host;
     private String theme;
     private String startTime;
     private String endTime;
@@ -70,7 +70,7 @@ public class Event {
     public String getTheme() {
       return this.theme;
     }
-    public void setTheme(Sting theme) {
+    public void setTheme(String theme) {
       this.theme = theme;
     }
 
@@ -88,12 +88,13 @@ public class Event {
       this.endTime = endTime;
     }
 
-    public String getLocation() {
-      return this.getAddress();
-      // return this.location;
+    public Location getLocation() {
+      // return this.getAddress();
+      return this.location;
     }
-    public void setLocation(String address) {
-      this.setAddress(address);
+    public void setLocation(Location location) {
+      // this.setAddress(address);
+      this.location = location;
     }
 
     public int getAgeLimit() {
