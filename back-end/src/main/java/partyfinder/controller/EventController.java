@@ -63,7 +63,7 @@ public class EventController {
     event.setEndTime(body.getEndTime());
     event.setLocation(body.getLocation());
     event.setAgeLimit(body.getAgeLimit());
-    event.setDrinks(body.getDrinks());
+    event.setByob(body.getByob());
     event.setCover(body.getCover());
 
 		eventRepository.save(event);
