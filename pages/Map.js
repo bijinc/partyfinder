@@ -1,17 +1,48 @@
 import {Component} from 'react';
 import ReactMapGL from 'react-map-gl';
+import Dashboard from "./Dashboard";
+import Map from './map';
 
-export default class Map extends React.Component {
 
-  state = {
-    viewport: {
-      width: window.innerWidth,
-      height: window.innerHeight,
-      latitude: 40.425,
-      longitude: -86.915,
-      zoom: 12
+
+export default class index extends React.Component{
+  constructor(props) {
+    super(props);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+
+    this.state = {
+      width: 0,
+      height: 0,
+      viewport: {
+        width: 0,
+        height: 0,
+        latitude: 40.425,
+        longitude: -86.915,
+        zoom: 12
+      }
     }
-  };
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    console.log(this.state)
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  updateWindowDimensions() {
+    this.setState(prevState => ({ 
+      viewport: {
+        ...prevState.viewport,
+        width: window.innerWidth, 
+        height: window.innerHeight,
+      }
+    }));
+  }
+  
   render() {
     return (
       <ReactMapGL
@@ -22,29 +53,3 @@ export default class Map extends React.Component {
     );
   }
 }
-
-
-
-// class Map extends React.Component {
-//     componentDidMount() {
-//       this.map = new mapboxgl.Map({
-//         container: this.mapContainer,
-//         style: 'mapbox://styles/mapbox/streets-v9'
-//       });
-//     }
-  
-//     componentWillUnmount() {
-//       this.map.remove();
-//     }
-  
-//     render() {
-//       const style {
-//         position: 'absolute',
-//         top: 0,
-//         bottom: 0,
-//         width: '100%'
-//       };
-  
-//       return <div style={style} ref={el => this.mapContainer = el} />;
-//     }
-//   }
