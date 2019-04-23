@@ -57,7 +57,7 @@ export default class Map extends React.Component{
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
     let events = getEvents();
-    console.log(events)
+    console.log(events);
   }
   
   componentWillUnmount() {

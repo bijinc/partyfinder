@@ -24,7 +24,7 @@ export default class CreateParty extends React.Component {
     return (
       <div>
         <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-          New Party
+          Profile
         </Button>
         <Dialog
           open={this.state.open}
