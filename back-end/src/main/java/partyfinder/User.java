@@ -11,7 +11,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
-    private String username;
+    private String userName;
     private String firstName;
     private String lastName;
     private String email;
@@ -22,8 +22,8 @@ public class User {
     private Event event;
 
     public User() { }
-    public User(String username, String firstName, String lastName, String email, String password, String birthday) {
-        this.username = username;
+    public User(String userName, String firstName, String lastName, String email, String password, String birthday) {
+        this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -41,10 +41,10 @@ public class User {
     }
 
     public String getUserName() {
-      return this.username;
+      return this.userName;
     }
-    public void setUserName(String username) {
-      this.username = username;
+    public void setUserName(String userName) {
+      this.userName = userName;
     }
 
     public String getFirstName() {
