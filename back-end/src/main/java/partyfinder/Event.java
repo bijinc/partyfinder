@@ -14,23 +14,24 @@ public class Event {
 
     private String name;
     private String hostName;
-
     private String theme;
     private String startTime;
     private String endTime;
     private String address;
+    private double[] coordinates;
     private boolean ageLimit;
     private boolean byob;
     private double cover;
 
     public Event() { }
-    public Event(String name, String hostName, String theme, String startTime, String endTime, String address, boolean ageLimit, boolean byob, double cover) {
+    public Event(String name, String hostName, String theme, String startTime, String endTime, String address, double[] coordinates, boolean ageLimit, boolean byob, double cover) {
       this.name = name;
       this.hostName = hostName;
       this.theme = theme;
       this.startTime = startTime;
       this.endTime = endTime;
       this.address = address;
+      this.coordinates = coordinates;
       this.ageLimit = ageLimit;
       this.byob = byob;
       this.cover = cover;
@@ -83,6 +84,13 @@ public class Event {
     }
     public void setAddress(String address) {
       this.address = address;
+    }
+
+    public double[] getCoordinates() {
+      return this.coordinates;
+    }
+    public double setCoordinates(double[] coordinates) {
+      this.coordinates = coordinates;
     }
 
     public boolean getAgeLimit() {
