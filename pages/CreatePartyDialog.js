@@ -10,6 +10,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import {addEvent} from './ServerFunctions'
+import Geocode from "react-geocode";
 
 
 export default class CreateParty extends React.Component {
@@ -22,8 +23,24 @@ export default class CreateParty extends React.Component {
     over21: false,
     BYOB: false,
     cover: 0,
-    addresss: '',
+    address: '',
+    lat: '',
+    long: '',
+    coordinates: [],
   };
+
+  componentDidMount(){
+    Geocode.enableDebug();
+    Geocode.fromAddress("Eifel Tower").then(
+      response => {
+        const { lat, lng } = response.results[0].geometry.location;
+        console.log(lat, lng);
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -31,6 +48,23 @@ export default class CreateParty extends React.Component {
 
   handleClose = () => {
     this.setState({ open: false });
+    if (!this.state.name || !this.state.lat || !this.state.long){
+      return;
+    }
+    // Geocode.fromAddress(this.state.address).then(
+    //   response => {
+    //     console.logt(this.state.address)
+    //     console.log(resonse.results[0].geometry.location)
+    //     this.setState({position: response.results[0].geometry.location});
+    //   },
+    //   error => {
+    //     console.error(error);
+    //   }
+    // );
+
+    
+
+
     const event= {
       name: this.state.name,
       hostName: this.props.user,
@@ -41,7 +75,9 @@ export default class CreateParty extends React.Component {
       BYOB: this.state.BYOB,
       cover: this.state.cover,
       address: this.state.address,
+      coordinates: [this.state.lat, this.state.long],
     }
+    console.log(this.state.coordinates)
     addEvent(event);
   };
 
@@ -51,8 +87,9 @@ export default class CreateParty extends React.Component {
 
   handleSwitch = name => event => {
     this.setState({ [name]: event.target.checked})
-    console.log(this.state)
   }
+
+  
 
 
   render() {
@@ -86,10 +123,15 @@ export default class CreateParty extends React.Component {
             />
             <TextField
               margin="dense"
-              id="address"
-              label="Address"
-              fullWidth
-              onChange={this.handleChange('address')}
+              id="lat"
+              label="Latitude"
+              onChange={this.handleChange('lat')}
+            />
+            <TextField
+              margin="dense"
+              id="long"
+              label="Longitude"
+              onChange={this.handleChange('long')}
             />
             <TextField
               id="start"

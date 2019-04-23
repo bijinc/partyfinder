@@ -8,6 +8,7 @@ import {getEvents} from './ServerFunctions';
 
 
 
+
 export default class Map extends React.Component{
   constructor(props) {
     super(props);
@@ -48,7 +49,7 @@ export default class Map extends React.Component{
       //   long: -86.914,
       //   position: [40.435,-86.914],
       // },
-    ]
+      ],
     }
   }
 
@@ -61,8 +62,10 @@ export default class Map extends React.Component{
     // }).then(response => this.setState({events: response.data})).catch();
 
     getEvents().then(response => {
-      console.log(response)
-      this.setState({events: response})
+      for(let i=0;i<response.length; i++){
+        let event = response[i];
+        this.state.events.push(event);
+      }
     });
     console.log(this.state.events)
     // this.setState({events: events})
@@ -99,8 +102,8 @@ export default class Map extends React.Component{
         {this.state.events.map((event, index) => (
           <ListItem key={index}>
             <Marker
-              latitude={event.position[0]}
-              longitude={event.position[1]}
+              latitude={event.coordinates[0]}
+              longitude={event.coordinates[1]}
               offsetTop={-10}
               onClick={() => this.clickMarker()}
               position='relative'
