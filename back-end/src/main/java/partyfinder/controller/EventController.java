@@ -40,21 +40,30 @@ public class EventController {
 	/* GET: Get event with id */
 	@GetMapping(path="/event/{id}")
 	public ResponseEntity<?> getEvent(@PathVariable("id") String id) {
-		Event event = eventRepository.findById(id).get();
-		if (event == null) {
+		Event event;
+		try {
+			event = eventRepository.findById(id).get();
+		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Event not found");
 		}
+
 		return new ResponseEntity<Event>(event, HttpStatus.OK);
 	}
 
 	/* PUT: Update event with ID */
 	@PutMapping(path="/edit-event/{id}")
 	public ResponseEntity<?> editEvent(@PathVariable("id") String id, @RequestBody Event body) {
-		Event event = eventRepository.findById(id).get();
-
-		if (event == null) {
+		Event event;
+		try {
+			event = eventRepository.findById(id).get();
+		}
+		catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Event not found");
 		}
+
+		// if (event == null) {
+		// 	return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Event not found");
+		// }
 
     event.setName(body.getName());
     event.setHostName(body.getName());

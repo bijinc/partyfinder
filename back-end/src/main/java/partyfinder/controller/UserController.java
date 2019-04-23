@@ -40,10 +40,16 @@ public class UserController {
 	/* GET: Get user with id */
 	@GetMapping(path="/user/{id}")
 	public ResponseEntity<?> getUser(@PathVariable("id") String id) {
-		User user = userRepository.findById(id).get();
-		if (user == null) {
+		User user;
+		try {
+			user = userRepository.findById(id).get();
+		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("User not found");
 		}
+		
+		// if (user == null) {
+		// 	return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("User not found");
+		// }
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
