@@ -77,7 +77,7 @@ public class EventController {
     event.setStarTime(body.getStartTime());
     event.setEndTime(body.getEndTime());
     event.setAddress(body.getAddress());
-		event.setCoordinates(body.getCoordinates())
+		event.setCoordinates(body.getCoordinates());
     event.setAgeLimit(body.getAgeLimit());
     event.setByob(body.getByob());
     event.setCover(body.getCover());
