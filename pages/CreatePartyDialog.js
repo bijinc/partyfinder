@@ -9,6 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import {addEvent} from './ServerFunctions'
 
 
 export default class CreateParty extends React.Component {
@@ -21,6 +22,7 @@ export default class CreateParty extends React.Component {
     over21: false,
     BYOB: false,
     cover: 0,
+    addresss: '',
   };
 
   handleClickOpen = () => {
@@ -29,12 +31,28 @@ export default class CreateParty extends React.Component {
 
   handleClose = () => {
     this.setState({ open: false });
+    const event= {
+      name: this.state.name,
+      hostName: this.props.user,
+      theme: this.state.theme,
+      startTime: this.state.start,
+      endTime: this.state.end,
+      ageLimit: this.state.over21,
+      BYOB: this.state.BYOB,
+      cover: this.state.cover,
+      address: this.state.address,
+    }
+    addEvent(event);
   };
 
   handleChange = name => event => {
-    this.setState({ [name]: event.target.checked });
-    console.log(this.state)
+    this.setState({ [name]: event.target.value });
   };
+
+  handleSwitch = name => event => {
+    this.setState({ [name]: event.target.checked})
+    console.log(this.state)
+  }
 
 
   render() {
@@ -64,8 +82,14 @@ export default class CreateParty extends React.Component {
               margin="dense"
               id="theme"
               label="Theme"
-              fullWidth
               onChange={this.handleChange('theme')}
+            />
+            <TextField
+              margin="dense"
+              id="address"
+              label="Address"
+              fullWidth
+              onChange={this.handleChange('address')}
             />
             <TextField
               id="start"
@@ -90,7 +114,7 @@ export default class CreateParty extends React.Component {
                 control={
                   <Switch
                     checked={this.state.over21}
-                    onChange={this.handleChange('over21')}
+                    onChange={this.handleSwitch('over21')}
                     value="over21"
                   />
                 }
@@ -100,7 +124,7 @@ export default class CreateParty extends React.Component {
                 control={
                   <Switch
                     checked={this.state.BYOB}
-                    onChange={this.handleChange('BYOB')}
+                    onChange={this.handleSwitch('BYOB')}
                     value="BYOB"
                   />
                 }

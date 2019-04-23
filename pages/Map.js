@@ -4,7 +4,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ReactMapGL, {Marker, Layer} from 'react-map-gl';
 // import 'mapbox-gl/dist/mapbox-gl.css';
-import Dashboard from "./Dashboard";
 import {getEvents} from './ServerFunctions';
 
 
@@ -56,8 +55,18 @@ export default class Map extends React.Component{
   componentDidMount() {
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
-    let events = getEvents();
-    console.log(events);
+    //fetch events
+    // fetch('http://party-finder.me/app/events', {
+    //   method: 'GET',
+    // }).then(response => this.setState({events: response.data})).catch();
+
+    getEvents().then(response => {
+      console.log(response)
+      this.setState({events: response})
+    });
+    console.log(this.state.events)
+    // this.setState({events: events})
+    // console.log(this.state.events) 
   }
   
   componentWillUnmount() {
