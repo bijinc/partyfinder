@@ -1,0 +1,55 @@
+{
+  "devFiles": [],
+  "pages": {
+    "/": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.55983d981398cce547ed.js",
+      "static/runtime/main-c189031387184a048836.js"
+    ],
+    "/App": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.55983d981398cce547ed.js",
+      "static/runtime/main-c189031387184a048836.js"
+    ],
+    "/CreatePartyDialog": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.55983d981398cce547ed.js",
+      "static/runtime/main-c189031387184a048836.js"
+    ],
+    "/Dashboard": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.55983d981398cce547ed.js",
+      "static/runtime/main-c189031387184a048836.js"
+    ],
+    "/Map": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.55983d981398cce547ed.js",
+      "static/runtime/main-c189031387184a048836.js"
+    ],
+    "/Profile": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.55983d981398cce547ed.js",
+      "static/runtime/main-c189031387184a048836.js"
+    ],
+    "/ServerFunctions": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.55983d981398cce547ed.js",
+      "static/runtime/main-c189031387184a048836.js"
+    ],
+    "/_app": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.55983d981398cce547ed.js",
+      "static/runtime/main-c189031387184a048836.js"
+    ],
+    "/_error": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.55983d981398cce547ed.js",
+      "static/runtime/main-c189031387184a048836.js"
+    ],
+    "/index": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.55983d981398cce547ed.js",
+      "static/runtime/main-c189031387184a048836.js"
+    ]
+  }
+}
