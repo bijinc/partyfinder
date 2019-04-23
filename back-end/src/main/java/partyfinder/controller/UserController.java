@@ -50,11 +50,16 @@ public class UserController {
 	/* PUT: Update user with ID */
 	@PutMapping(path="/edit-user/{id}")
 	public ResponseEntity<?> editUser(@PathVariable("id") String id, @RequestBody User body) {
-		User user = userRepository.findById(id).get();
-
-		if (user == null) {
+		User user;
+		try {
+			user = userRepository.findById(id).get();
+		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("User not found");
 		}
+
+		// if (!user.isPresent()) {
+		// 	return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("User not found");
+		// }
 		user.setFirstName(body.getFirstName());
 		user.setLastName(body.getLastName());
     user.setEmail(body.getEmail());

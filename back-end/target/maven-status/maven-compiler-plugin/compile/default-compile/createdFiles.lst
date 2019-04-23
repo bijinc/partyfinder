@@ -1,6 +1,8 @@
 partyfinder/User.class
 partyfinder/Application.class
+partyfinder/controller/UserController.class
 partyfinder/EventRepository.class
+partyfinder/controller/EventController.class
 partyfinder/Event.class
 partyfinder/Event$Location.class
 partyfinder/UserRepository.class
