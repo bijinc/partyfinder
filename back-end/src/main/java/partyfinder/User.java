@@ -29,7 +29,7 @@ public class User {
         this.password = password;
         this.birthday = birthday;
         this.hosting = false;
-        this.event = "";
+        this.eventName = "";
     }
 
     public String getId() {
@@ -92,10 +92,10 @@ public class User {
     }
 
     public String getEvent() {
-      return this.event;
+      return this.eventName;
     }
-    public void setEvent(String event) {
-      this.event = event;
+    public void setEvent(String eventName) {
+      this.eventName = eventName;
       this.setHosting(true);
     }
 }
