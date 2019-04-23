@@ -5,7 +5,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ReactMapGL, {Marker, Layer} from 'react-map-gl';
 // import 'mapbox-gl/dist/mapbox-gl.css';
 import Dashboard from "./Dashboard";
-import getEvents from './ServerFunctions';
+import {getEvents} from './ServerFunctions';
 
 
 
