@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 import partyfinder.User;
 import partyfinder.UserRepository;
 
@@ -33,7 +35,7 @@ public class UserController {
 
 	/* GET: Get all users */
 	@GetMapping(path="/all-users")
-	public @ResponseBody Iterable<User> getAllUsers() {
+	public @ResponseBody List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
 

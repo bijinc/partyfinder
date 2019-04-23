@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 import partyfinder.Event;
 import partyfinder.EventRepository;
 
@@ -32,8 +34,12 @@ public class EventController {
 	}
 
 	/* GET: Get all events */
+	// @GetMapping(path="/events")
+	// public @ResponseBody Iterable<Event> getAllEvents() {
+	// 	return eventRepository.findAll();
+	// }
 	@GetMapping(path="/events")
-	public @ResponseBody Iterable<Event> getAllEvents() {
+	public @ResponseBody List<Event> getAllEvents() {
 		return eventRepository.findAll();
 	}
 
