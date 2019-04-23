@@ -3,9 +3,12 @@ import ReactMapGL from 'react-map-gl';
 import Dashboard from "./Dashboard";
 import Map from './map';
 
-
+import Auth from './Auth/Auth.js';
 
 export default class App extends React.Component{
+  const auth = new Auth()
+  auth.login();
+
   state = {
     viewport: {
       width: window.innerWidth,
