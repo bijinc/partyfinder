@@ -4,6 +4,6 @@ package partyfinder;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import partyfinder.User;
 
-public interface UserRepository extends MongoRepository<User, Integer> {
+public interface UserRepository extends MongoRepository<User, String> {
 
 }

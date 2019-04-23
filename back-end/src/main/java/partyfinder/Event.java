@@ -20,7 +20,7 @@ public class Event {
   }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private String id;
 
     private String name;
     private String hostName;
@@ -46,10 +46,10 @@ public class Event {
       this.cover = cover;
     }
 
-    public Integer getId() {
+    public String getId() {
         return this.id;
     }
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
