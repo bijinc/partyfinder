@@ -27,7 +27,7 @@ public class EventController {
 	/* POST: Add new event */
 	@PostMapping(path="/host")
 	public @ResponseBody Event addEvent (@RequestBody Event body) {
-		Event event = new Event(body.getName(), body.getHostName(), body.getTheme(), body.getStartTime(), body.getEndTime(), body.getLocation(), body.getAgeLimit(), body.getByob(), body.getCover());
+		Event event = new Event(body.getName(), body.getHostName(), body.getTheme(), body.getStartTime(), body.getEndTime(), body.getAddress(), body.getAgeLimit(), body.getByob(), body.getCover());
 		return eventRepository.save(event);
 	}
 
@@ -70,7 +70,7 @@ public class EventController {
     event.setTheme(body.getTheme());
     event.setStarTime(body.getStartTime());
     event.setEndTime(body.getEndTime());
-    event.setLocation(body.getLocation());
+    event.setAddress(body.getAddress());
     event.setAgeLimit(body.getAgeLimit());
     event.setByob(body.getByob());
     event.setCover(body.getCover());
