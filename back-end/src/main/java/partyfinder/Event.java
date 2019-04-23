@@ -89,7 +89,7 @@ public class Event {
     public double[] getCoordinates() {
       return this.coordinates;
     }
-    public double setCoordinates(double[] coordinates) {
+    public void setCoordinates(double[] coordinates) {
       this.coordinates = coordinates;
     }
 
