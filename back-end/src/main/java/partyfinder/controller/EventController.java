@@ -18,7 +18,7 @@ import partyfinder.Event;
 import partyfinder.EventRepository;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4200")
+// @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path="/app")
 public class EventController {
 	@Autowired
@@ -39,7 +39,7 @@ public class EventController {
 
 	/* GET: Get event with id */
 	@GetMapping(path="/event/{id}")
-	public ResponseEntity<?> getEvent(@PathVariable("id") Integer id) {
+	public ResponseEntity<?> getEvent(@PathVariable("id") String id) {
 		Event event = eventRepository.findById(id).get();
 		if (event == null) {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Event not found");
@@ -49,7 +49,7 @@ public class EventController {
 
 	/* PUT: Update event with ID */
 	@PutMapping(path="/edit-event/{id}")
-	public ResponseEntity<?> editEvent(@PathVariable("id") Integer id, @RequestBody Event body) {
+	public ResponseEntity<?> editEvent(@PathVariable("id") String id, @RequestBody Event body) {
 		Event event = eventRepository.findById(id).get();
 
 		if (event == null) {

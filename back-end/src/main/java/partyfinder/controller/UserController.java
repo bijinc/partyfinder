@@ -39,7 +39,7 @@ public class UserController {
 
 	/* GET: Get user with id */
 	@GetMapping(path="/user/{id}")
-	public ResponseEntity<?> getUser(@PathVariable("id") Integer id) {
+	public ResponseEntity<?> getUser(@PathVariable("id") String id) {
 		User user = userRepository.findById(id).get();
 		if (user == null) {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("User not found");
@@ -49,7 +49,7 @@ public class UserController {
 
 	/* PUT: Update user with ID */
 	@PutMapping(path="/edit-user/{id}")
-	public ResponseEntity<?> editUser(@PathVariable("id") Integer id, @RequestBody User body) {
+	public ResponseEntity<?> editUser(@PathVariable("id") String id, @RequestBody User body) {
 		User user = userRepository.findById(id).get();
 
 		if (user == null) {
