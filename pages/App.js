@@ -3,11 +3,11 @@ import ReactMapGL from 'react-map-gl';
 import Dashboard from "./Dashboard";
 import Map from './map';
 
-import Auth from './Auth/Auth.js';
+import Auth from './Auth.js';
 
 export default class App extends React.Component{
-  const auth = new Auth()
-  auth.login();
+  // const auth = new Auth()
+  // auth.login();
 
   state = {
     viewport: {
@@ -18,7 +18,12 @@ export default class App extends React.Component{
       zoom: 12
     }
   };
+
+  const auth = new Auth();
+  auth.login();
   render() {
+    // const auth = new Auth();
+    // auth.login();
     return (
       <ReactMapGL
         {...this.state.viewport}
