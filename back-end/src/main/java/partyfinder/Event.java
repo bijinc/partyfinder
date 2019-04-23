@@ -8,39 +8,29 @@ import javax.persistence.Id;
 @Entity
 public class Event {
 
-  private class Location {
-    private String address;
-
-    public String getAddress() {
-      return this.address;
-    }
-    public void setAddress(String address) {
-      this.address = address;
-    }
-  }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
     private String name;
     private String hostName;
-    // private User host;
+
     private String theme;
     private String startTime;
     private String endTime;
-    private Location location;
+    private String address;
     private boolean ageLimit;
     private boolean byob;
     private double cover;
 
     public Event() { }
-    public Event(String name, String hostName, String theme, String startTime, String endTime, Location location, boolean ageLimit, boolean byob, double cover) {
+    public Event(String name, String hostName, String theme, String startTime, String endTime, String address, boolean ageLimit, boolean byob, double cover) {
       this.name = name;
       this.hostName = hostName;
       this.theme = theme;
       this.startTime = startTime;
       this.endTime = endTime;
-      this.location = location;
+      this.address = address;
       this.ageLimit = ageLimit;
       this.byob = byob;
       this.cover = cover;
@@ -88,13 +78,11 @@ public class Event {
       this.endTime = endTime;
     }
 
-    public Location getLocation() {
-      // return this.getAddress();
-      return this.location;
+    public String getAddress() {
+      return this.address;
     }
-    public void setLocation(Location location) {
-      // this.setAddress(address);
-      this.location = location;
+    public void setAddress(String address) {
+      this.address = address;
     }
 
     public boolean getAgeLimit() {

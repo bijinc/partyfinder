@@ -18,7 +18,7 @@ import partyfinder.User;
 import partyfinder.UserRepository;
 
 @Controller
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping(path="/app")
 public class UserController {
 	@Autowired
@@ -46,7 +46,7 @@ public class UserController {
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("User not found");
 		}
-		
+
 		// if (user == null) {
 		// 	return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("User not found");
 		// }
