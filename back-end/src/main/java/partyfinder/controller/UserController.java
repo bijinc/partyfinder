@@ -39,22 +39,33 @@ public class UserController {
 
 	/* GET: Get user with id */
 	@GetMapping(path="/user/{id}")
-	public ResponseEntity<?> getUser(@PathVariable("id") Integer id) {
-		User user = userRepository.findById(id).get();
-		if (user == null) {
+	public ResponseEntity<?> getUser(@PathVariable("id") String id) {
+		User user;
+		try {
+			user = userRepository.findById(id).get();
+		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("User not found");
 		}
+		
+		// if (user == null) {
+		// 	return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("User not found");
+		// }
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
 	/* PUT: Update user with ID */
 	@PutMapping(path="/edit-user/{id}")
-	public ResponseEntity<?> editUser(@PathVariable("id") Integer id, @RequestBody User body) {
-		User user = userRepository.findById(id).get();
-
-		if (user == null) {
+	public ResponseEntity<?> editUser(@PathVariable("id") String id, @RequestBody User body) {
+		User user;
+		try {
+			user = userRepository.findById(id).get();
+		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("User not found");
 		}
+
+		// if (!user.isPresent()) {
+		// 	return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("User not found");
+		// }
 		user.setFirstName(body.getFirstName());
 		user.setLastName(body.getLastName());
     user.setEmail(body.getEmail());

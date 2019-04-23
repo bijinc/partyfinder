@@ -18,7 +18,7 @@ import partyfinder.Event;
 import partyfinder.EventRepository;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4200")
+// @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path="/app")
 public class EventController {
 	@Autowired
@@ -27,7 +27,7 @@ public class EventController {
 	/* POST: Add new event */
 	@PostMapping(path="/host")
 	public @ResponseBody Event addEvent (@RequestBody Event body) {
-		Event event = new Event(body.getName(), body.getHostName(), body.getTheme(), body.getStartTime(), body.getEndTime(), body.getLocation(), body.getAgeLimit(), body.getDrinks(), body.getCover());
+		Event event = new Event(body.getName(), body.getHostName(), body.getTheme(), body.getStartTime(), body.getEndTime(), body.getLocation(), body.getAgeLimit(), body.getByob(), body.getCover());
 		return eventRepository.save(event);
 	}
 
@@ -39,22 +39,31 @@ public class EventController {
 
 	/* GET: Get event with id */
 	@GetMapping(path="/event/{id}")
-	public ResponseEntity<?> getEvent(@PathVariable("id") Integer id) {
-		Event event = eventRepository.findById(id).get();
-		if (event == null) {
+	public ResponseEntity<?> getEvent(@PathVariable("id") String id) {
+		Event event;
+		try {
+			event = eventRepository.findById(id).get();
+		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Event not found");
 		}
+
 		return new ResponseEntity<Event>(event, HttpStatus.OK);
 	}
 
 	/* PUT: Update event with ID */
 	@PutMapping(path="/edit-event/{id}")
-	public ResponseEntity<?> editEvent(@PathVariable("id") Integer id, @RequestBody Event body) {
-		Event event = eventRepository.findById(id).get();
-
-		if (event == null) {
+	public ResponseEntity<?> editEvent(@PathVariable("id") String id, @RequestBody Event body) {
+		Event event;
+		try {
+			event = eventRepository.findById(id).get();
+		}
+		catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Event not found");
 		}
+
+		// if (event == null) {
+		// 	return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Event not found");
+		// }
 
     event.setName(body.getName());
     event.setHostName(body.getName());
@@ -63,7 +72,7 @@ public class EventController {
     event.setEndTime(body.getEndTime());
     event.setLocation(body.getLocation());
     event.setAgeLimit(body.getAgeLimit());
-    event.setDrinks(body.getDrinks());
+    event.setByob(body.getByob());
     event.setCover(body.getCover());
 
 		eventRepository.save(event);

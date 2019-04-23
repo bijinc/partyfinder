@@ -20,7 +20,7 @@ public class Event {
   }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private String id;
 
     private String name;
     private String hostName;
@@ -42,14 +42,14 @@ public class Event {
       this.endTime = endTime;
       this.location = location;
       this.ageLimit = ageLimit;
-      this.drinks = drinks;
+      this.byob = byob;
       this.cover = cover;
     }
 
-    public Integer getId() {
+    public String getId() {
         return this.id;
     }
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -104,11 +104,11 @@ public class Event {
       this.ageLimit = ageLimit;
     }
 
-    public String getByob() {
-      return this.drinks;
+    public boolean getByob() {
+      return this.byob;
     }
     public void setByob(boolean byob) {
-      this.drinks = drinks;
+      this.byob = byob;
     }
 
     public double getCover() {
