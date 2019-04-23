@@ -18,7 +18,7 @@ import partyfinder.Event;
 import partyfinder.EventRepository;
 
 @Controller
-@CrossOrigin(origins = "*")
+@CrossOrigin
 @RequestMapping(path="/app")
 public class EventController {
 	@Autowired

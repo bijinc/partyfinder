@@ -18,7 +18,7 @@ import partyfinder.User;
 import partyfinder.UserRepository;
 
 @Controller
-@CrossOrigin(origins = "*")
+@CrossOrigin
 @RequestMapping(path="/app")
 public class UserController {
 	@Autowired
