@@ -16,10 +16,9 @@ public class User {
     private String lastName;
     private String email;
     private String password;
-
     private String birthday;
     private boolean hosting;
-    private Event event;
+    private String eventName;
 
     public User() { }
     public User(String userName, String firstName, String lastName, String email, String password, String birthday) {
@@ -30,7 +29,7 @@ public class User {
         this.password = password;
         this.birthday = birthday;
         this.hosting = false;
-        this.event = null;
+        this.event = "";
     }
 
     public String getId() {
@@ -92,10 +91,10 @@ public class User {
       this.birthday = birthday;
     }
 
-    public Event getEvent() {
+    public String getEvent() {
       return this.event;
     }
-    public void setEvent(Event event) {
+    public void setEvent(String event) {
       this.event = event;
       this.setHosting(true);
     }
