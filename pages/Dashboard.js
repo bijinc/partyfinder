@@ -19,6 +19,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Grid from '@material-ui/core/Grid';
 import Map from './Map';
 import CreateParty from './CreatePartyDialog';
 import Profile from './Profile';
@@ -82,7 +83,7 @@ const styles = theme => ({
   },
   sidebar: {
     flex: 1,
-    alignItems: 'center',
+    justifyContent: 'center',
   }
 });
 
@@ -135,6 +136,11 @@ class PersistentDrawerLeft extends React.Component {
             paper: classes.drawerPaper,
           }}
         >
+          {/* <Grid
+            direction='column'
+            justifyContent='flex-start'
+            alignItems='center'
+          > */}
           <div className={classes.drawerHeader}>
             <IconButton onClick={this.handleDrawerClose}>
               {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
@@ -145,7 +151,7 @@ class PersistentDrawerLeft extends React.Component {
               <Profile/>
               <CreateParty/>
             </div>
-          <Divider />
+          {/* <Divider />
           <List>
             {['All mail', 'Trash', 'Spam'].map((text, index) => (
               <ListItem button key={text}>
@@ -153,7 +159,8 @@ class PersistentDrawerLeft extends React.Component {
                 <ListItemText primary={text} />
               </ListItem>
             ))}
-          </List>
+          </List> */}
+          {/* </Grid> */}
         </Drawer>
         <main
           className={classNames(classes.content, {

@@ -40,7 +40,7 @@ export default class CreateParty extends React.Component {
   render() {
     return (
       <div>
-        <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
+        <Button color="primary" onClick={this.handleClickOpen}>
           New Event
         </Button>
         <Dialog

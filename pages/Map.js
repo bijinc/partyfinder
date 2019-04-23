@@ -3,7 +3,9 @@ import LocationOn from '@material-ui/icons/LocationOn';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ReactMapGL, {Marker, Layer} from 'react-map-gl';
+// import 'mapbox-gl/dist/mapbox-gl.css';
 import Dashboard from "./Dashboard";
+import getEvents from './ServerFunctions';
 
 
 
@@ -16,37 +18,37 @@ export default class Map extends React.Component{
       viewport: {
         width: 0,
         height: 0,
-        latitude: 40.425,
+        latitude: 40.427,
         longitude: -86.915,
-        zoom: 12
+        zoom: 14
       },
       events: [
-        {name: 'Party',
-        theme: 'Boogie',
-        start: '12:30',
-        end: '3:30',
-        over21: false,
-        BYOB: false,
-        position: [40.4285,-86.909],
-      },
-      {name: "Jose's Party",
-        theme: 'Fun',
-        start: '4:00',
-        end: '6:00',
-        over21: true,
-        BYOB: true,
-        position: [40.426,-86.924],
-      },
-      {name: '',
-        theme: '',
-        start: '',
-        end: '',
-        over21: false,
-        BYOB: false,
-        lat: 40.435,
-        long: -86.914,
-        position: [40.435,-86.914],
-      },
+      //   {name: 'Party',
+      //   theme: 'Boogie',
+      //   start: '12:30',
+      //   end: '3:30',
+      //   over21: false,
+      //   BYOB: false,
+      //   position: [40.4285,-86.909],
+      // },
+      // {name: "Jose's Party",
+      //   theme: 'Fun',
+      //   start: '4:00',
+      //   end: '6:00',
+      //   over21: true,
+      //   BYOB: true,
+      //   position: [40.426,-86.924],
+      // },
+      // {name: '',
+      //   theme: '',
+      //   start: '',
+      //   end: '',
+      //   over21: false,
+      //   BYOB: false,
+      //   lat: 40.435,
+      //   long: -86.914,
+      //   position: [40.435,-86.914],
+      // },
     ]
     }
   }
@@ -54,6 +56,8 @@ export default class Map extends React.Component{
   componentDidMount() {
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
+    let events = getEvents();
+    console.log(events)
   }
   
   componentWillUnmount() {
@@ -79,6 +83,7 @@ export default class Map extends React.Component{
       <ReactMapGL
         {...this.state.viewport}
         mapboxApiAccessToken='pk.eyJ1IjoiYnJpYW5sb25nOTEyIiwiYSI6ImNqdXB6dDk4MzBzMWszeXA3ODlodzBtdXcifQ.ZqmXaAGe-PFb9GZmmnhcog'
+        scrollZoom={false}
         onViewportChange={(viewport) => this.setState({viewport})}
       >
       <List>

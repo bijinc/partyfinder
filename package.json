@@ -30,5 +30,8 @@
     "react-dom": "^16.8.6",
     "react-map-gl": "^4.1.2",
     "react-mapbox-gl": "^4.2.2"
+  },
+  "devDependencies": {
+    "css-loader": "^2.1.1"
   }
 }
